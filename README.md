@@ -10,4 +10,4 @@ Increasing fidelity of search algorithms, e.g if I search for "Mony Lawndaring",
 
 ## Resources
 
-* [Wikipedia - Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
+* [Wikipedia - Levenstein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
