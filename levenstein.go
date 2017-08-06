@@ -1,5 +1,12 @@
 package main
 
+/**
+ * Levenshtein distance algorithm
+ *
+ * @see https://en.wikipedia.org/wiki/Levenshtein_distance
+ *
+ * @author jan.cajthaml
+ */
 func LevensteinDistance(a, b []byte) int {
 	if len(a) == 0 {
 		return len(b)
@@ -45,12 +52,10 @@ inner:
 	} else if b[i3] != a[i2] && f[i3] > prev {
 		prev, f[i3+1] = f[i3+1], prev+1
 	} else if b[i3] != a[i2] {
-		// SAME as 50
 		prev, f[i3+1] = f[i3+1], f[i3]+1
 	} else if f[i3]+1 > prev {
 		prev, f[i3+1] = f[i3+1], prev
 	} else {
-		// SAME as 44
 		prev, f[i3+1] = f[i3+1], f[i3]+1
 	}
 
