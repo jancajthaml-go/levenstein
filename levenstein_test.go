@@ -22,7 +22,7 @@ func BenchmarkLevensteinSerial(b *testing.B) {
 	}
 }
 
-func TestDistanceOnEmptyStrings(t *testing.T) {
+func TestCalculations(t *testing.T) {
 	expectDistance := func(a string, b string, c int) {
 		d := LevensteinDistance([]byte(a), []byte(b))
 		if d != c {
@@ -30,10 +30,12 @@ func TestDistanceOnEmptyStrings(t *testing.T) {
 		}
 	}
 
+	// matches
 	expectDistance("", "", 0)
 	expectDistance("a", "a", 0)
 	expectDistance("abc", "abc", 0)
 
+	// empty on one side
 	expectDistance("a", "", 1)
 	expectDistance("", "a", 1)
 	expectDistance("abc", "", 3)
