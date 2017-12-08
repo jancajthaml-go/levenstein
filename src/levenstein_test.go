@@ -3,28 +3,28 @@ package main
 import "testing"
 
 func BenchmarkLevensteinParallel(b *testing.B) {
-	left := []byte("xxxx")
-	right := []byte("xxxy")
+	left := "xxxx"
+	right := "xxxy"
 
 	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
-			LevensteinDistance(left, right)
+			Distance(left, right)
 		}
 	})
 }
 
 func BenchmarkLevensteinSerial(b *testing.B) {
-	left := []byte("xxxx")
-	right := []byte("xxxy")
+	left := "xxxx"
+	right := "xxxy"
 
 	for n := 0; n < b.N; n++ {
-		LevensteinDistance(left, right)
+		Distance(left, right)
 	}
 }
 
 func TestCalculations(t *testing.T) {
 	expectDistance := func(a string, b string, c int) {
-		d := LevensteinDistance([]byte(a), []byte(b))
+		d := Distance(a, b)
 		if d != c {
 			t.Errorf("a: `" + a + "`, b: `" + b + "` expected " + string(c+48) + " , got " + string(d+48))
 		}

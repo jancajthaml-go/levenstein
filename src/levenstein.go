@@ -1,32 +1,30 @@
+//
+// Information about the algorithm is available on Wikipedia
+//
+// https://en.wikipedia.org/wiki/Levenshtein_distance
+//
 package main
 
-/**
- * Levenshtein distance algorithm
- *
- * @see https://en.wikipedia.org/wiki/Levenshtein_distance
- *
- * @author jan.cajthaml
- */
-func LevensteinDistance(a, b []byte) int {
+func Distance(a, b string) int {
 	if len(a) == 0 {
 		return len(b)
 	} else if len(b) == 0 {
 		return len(a)
 	} else if len(a) > len(b) {
-		return distance(a, b)
+		return calculate_distance([]byte(a), []byte(b))
 	} else {
-		return distance(b, a)
+		return calculate_distance([]byte(b), []byte(a))
 	}
 }
 
-func distance(a, b []byte) int {
+func calculate_distance(a, b []byte) int {
 	var (
 		prev int
-		i1   int   = 0
-		l1   int   = len(b) + 1
-		i2   int   = 0
-		l2   int   = len(a)
-		i3   int   = 0
+		i1   int
+		l1   int = len(b) + 1
+		i2   int
+		l2   int = len(a)
+		i3   int
 		l3   int   = len(b)
 		f    []int = make([]int, len(b)+1)
 	)

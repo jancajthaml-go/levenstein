@@ -14,7 +14,7 @@ func main() {
 		return
 	}
 
-	lev := LevensteinDistance([]byte(os.Args[1]), []byte(os.Args[2]))
+	lev := Distance(os.Args[1], os.Args[2])
 
 	os.Stdout.Write([]byte(string(lev + 48)))
 	os.Exit(0)
