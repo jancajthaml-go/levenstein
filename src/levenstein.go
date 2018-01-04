@@ -5,19 +5,24 @@
 //
 package main
 
+// Distance returns levenstein distance between two strings
 func Distance(a, b string) int {
 	if len(a) == 0 {
 		return len(b)
-	} else if len(b) == 0 {
-		return len(a)
-	} else if len(a) > len(b) {
-		return calculate_distance([]byte(a), []byte(b))
-	} else {
-		return calculate_distance([]byte(b), []byte(a))
 	}
+
+	if len(b) == 0 {
+		return len(a)
+	}
+
+	if len(a) > len(b) {
+		return calculateDistance([]byte(a), []byte(b))
+	}
+
+	return calculateDistance([]byte(b), []byte(a))
 }
 
-func calculate_distance(a, b []byte) int {
+func calculateDistance(a, b []byte) int {
 	var (
 		prev int
 		i1   int
