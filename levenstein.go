@@ -3,7 +3,7 @@
 //
 // https://en.wikipedia.org/wiki/Levenshtein_distance
 //
-package main
+package levenstein
 
 // Distance returns levenstein distance between two strings
 func Distance(a, b string) int {
@@ -34,11 +34,11 @@ func calculateDistance(a, b []byte) int {
 		f    []int = make([]int, len(b)+1)
 	)
 
-s1:
+pre:
 	f[i1] = i1
 	i1++
 	if i1 < l1 {
-		goto s1
+		goto pre
 	}
 outer:
 	prev = f[0]
