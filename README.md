@@ -1,4 +1,4 @@
-## Performant implementation of Levenstein distance
+## levenstein distance
 
 [![Go Report Card](https://goreportcard.com/badge/jancajthaml-go/levenstein)](https://goreportcard.com/report/jancajthaml-go/levenstein)
 
