@@ -6,23 +6,26 @@
 package levenstein
 
 // Distance returns levenstein distance between two strings
-func Distance(a, b string) int {
-	if len(a) == 0 {
-		return len(b)
+func Distance(left string, right string) int {
+
+	if len(left) == 0 {
+		return len(right)
 	}
 
-	if len(b) == 0 {
-		return len(a)
+	if len(right) == 0 {
+		return len(left)
 	}
 
-	if len(a) > len(b) {
-		return calculateDistance([]byte(a), []byte(b))
+	var a []byte
+	var b []byte
+	if len(left) > len(right) {
+		a = []byte(left)
+		b = []byte(right)
+	} else {
+		a = []byte(right)
+		b = []byte(left)
 	}
 
-	return calculateDistance([]byte(b), []byte(a))
-}
-
-func calculateDistance(a, b []byte) int {
 	var (
 		prev int
 		i1   int
