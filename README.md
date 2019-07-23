@@ -21,8 +21,8 @@ levenstein.Distance("aba", "bba")
 ### Performance ###
 
 ```
-BenchmarkLevensteinParallel-4  20000000  85.1 ns/op  48 B/op  1 allocs/op
-BenchmarkLevensteinSerial-4    10000000   188 ns/op  48 B/op  1 allocs/op
+BenchmarkLevensteinParallel  20000000  85.1 ns/op  48 B/op  1 allocs/op
+BenchmarkLevensteinSerial    10000000   188 ns/op  48 B/op  1 allocs/op
 ```
 
 verify your performance by running `make benchmark`
