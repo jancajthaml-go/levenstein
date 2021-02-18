@@ -7,17 +7,16 @@ package levenstein
 
 // Distance returns levenstein distance between two strings
 func Distance(left string, right string) int {
-
 	if len(left) == 0 {
 		return len(right)
 	}
-
 	if len(right) == 0 {
 		return len(left)
 	}
-
-	var a []byte
-	var b []byte
+	var (
+		a []byte
+		b []byte
+	)
 	if len(left) > len(right) {
 		a = []byte(left)
 		b = []byte(right)
@@ -25,7 +24,6 @@ func Distance(left string, right string) int {
 		a = []byte(right)
 		b = []byte(left)
 	}
-
 	var (
 		prev int
 		i1   int
@@ -33,10 +31,9 @@ func Distance(left string, right string) int {
 		i2   int
 		l2   int = len(a)
 		i3   int
-		l3   int   = len(b)
+		l3   int = len(b)
 		f    []int = make([]int, len(b)+1)
 	)
-
 pre:
 	f[i1] = i1
 	i1++
@@ -64,7 +61,6 @@ inner:
 	} else {
 		prev, f[i3+1] = f[i3+1], f[i3]+1
 	}
-
 	i3++
 	if i3 != l3 {
 		goto inner
@@ -74,6 +70,5 @@ inner:
 	if i2 != l2 {
 		goto outer
 	}
-
 	return f[len(f)-1]
 }

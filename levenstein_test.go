@@ -26,7 +26,7 @@ func TestCalculations(t *testing.T) {
 	expectDistance := func(a string, b string, c int) {
 		d := Distance(a, b)
 		if d != c {
-			t.Errorf("a: `" + a + "`, b: `" + b + "` expected " + string(c+48) + " , got " + string(d+48))
+			t.Errorf("a: `" + a + "`, b: `" + b + "` expected " + string(rune(c+48)) + " , got " + string(rune(d+48)))
 		}
 	}
 
